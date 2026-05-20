@@ -5,25 +5,25 @@ length = 15;
 
 cable_dia = 6;
 
-difference(){
+difference() {
   union() {
-  //main tube
+    //main tube
     difference() {
       //outer tube
-      cylinder(d = inner * .95, h = length);
+      cylinder(d=inner * .95, h=length);
       //inner tube
-      cylinder(d = cable_dia * 1.1, h = length);
+      cylinder(d=cable_dia * 1.1, h=length);
     }
-  //collar
-    translate([0,0,length])
-    difference() {
-      //outer tube
-      cylinder(d = outer * .95, h = length * 0.1);
-      //inner tube
-      cylinder(d = cable_dia * 1.1, h = length * 0.1);
-    }
+    //collar
+    translate([0, 0, length])
+      difference() {
+        //outer tube
+        cylinder(d=outer * .95, h=length * 0.1);
+        //inner tube
+        cylinder(d=cable_dia * 1.1, h=length * 0.1);
+      }
   }
 
-//slice
-cube([outer,1,length + length * 0.1]);
+  //slice
+  cube([outer, 1, length + length * 0.1]);
 }
